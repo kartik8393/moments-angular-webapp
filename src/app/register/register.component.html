@@ -1,0 +1,99 @@
+<body>
+    <div class="primary-bg">
+        <div class="white-bg">
+            <div class="heading">Sign Up</div>
+            <div class="title">To be a member</div>
+            <div class="container">
+                <div class="container-fluid p-5">
+                    <form (ngSubmit)="adduserForm.valid && updateUser(adduserForm)" #adduserForm="ngForm">
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>First Name</mat-label>
+                                    <textarea name="newUser.firstName"  #firstName="ngModel" [(ngModel)]="newUser.firstName" required  matInput type="text" placeholder="Robert" ></textarea>
+                                    <div *ngIf="firstName.valid || adduserForm.submitted">
+                                        <div *ngIf="firstName.errors && firstName.errors.required"
+                                            class="validation-text text-danger">
+                                            First Name is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Last Name</mat-label>
+                                    <textarea  name="newUser.lastName"   #lastName="ngModel" [(ngModel)]="newUser.lastName"  required matInput type="text" placeholder="Downey Jr" ></textarea>
+                                    <div *ngIf="lastName.valid || adduserForm.submitted">
+                                        <div *ngIf="lastName.errors && lastName.errors.required"
+                                            class="validation-text text-danger">
+                                            Last Name is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Mobile No</mat-label>
+                                    <textarea  name="newUser.mobile"  #mobile="ngModel" [(ngModel)]="newUser.mobile"  required matInput type="number" placeholder="987456974" ></textarea>
+                                    <div *ngIf="mobile.valid || adduserForm.submitted">
+                                        <div *ngIf="mobile.errors && mobile.errors.required"
+                                            class="validation-text text-danger">
+                                            Mobile is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Email ID</mat-label>
+                                    <textarea  name="newUser.email"  #email="ngModel"  [(ngModel)]="newUser.email"  required matInput placeholder="rdj@gmail.com" ></textarea>
+                                    <div *ngIf="email.valid || adduserForm.submitted">
+                                        <div *ngIf="email.errors && email.errors.required"
+                                            class="validation-text text-danger">
+                                            Email is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>City</mat-label>
+                                    <textarea  name="newUser.city"  #city="ngModel"  [(ngModel)]="newUser.city"  required matInput placeholder="Pune" ></textarea>
+                                    <div *ngIf="city.valid || adduserForm.submitted">
+                                        <div *ngIf="city.errors && city.errors.required"
+                                            class="validation-text text-danger">
+                                            City is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Enter Password</mat-label>
+                                    <textarea name="newUser.password"  #password="ngModel"  [(ngModel)]="newUser.password"  required matInput type="password" placeholder="***********" value=""></textarea>
+                                    <div *ngIf="password.valid || adduserForm.submitted">
+                                        <div *ngIf="password.errors && mobile.errors.required"
+                                            class="validation-text text-danger">
+                                            Password is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row" style="text-align: center;">
+                            <button class="button mx-auto" [disabled]="showSaveLoader" type="submit">Submit<div *ngIf="showSaveLoader" class="spinner-border spinner-border-sm ml-2" ></div></button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+</body>
