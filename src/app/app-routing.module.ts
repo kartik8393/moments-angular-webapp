@@ -8,6 +8,10 @@ import {MomentlistComponent} from './momentlist/momentlist.component'
 
 const routes: Routes = [
   {
+    path:'',
+    component:RegisterComponent
+  },
+  {
     path:'register',
     component:RegisterComponent
   },
@@ -25,7 +29,7 @@ const routes: Routes = [
     component:MomentlistComponent,
     canActivate:[AuthguardGuard]
   },
-  { path:"**", component: MomentlistComponent,pathMatch: 'full' },
+  { path:"**", component: RegisterComponent,pathMatch: 'full' },
 ];
 
 @NgModule({
