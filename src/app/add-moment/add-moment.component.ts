@@ -107,7 +107,7 @@ export class AddMomentComponent implements OnInit {
           let resp = (<any>res).body
           if (resp.code == 200) {
             window.alert("Moment updated succesfully")
-            this.router.navigate(['/momentList'])
+            this.router.navigate(['/momentlist'])
           }
           else{
             // this.newMoment={}
@@ -128,7 +128,7 @@ export class AddMomentComponent implements OnInit {
           let resp = (<any>res).body
           if (resp.code == 200) {
             window.alert("Moment added succesfully")
-            this.router.navigate(['/momentList'])
+            this.router.navigate(['/momentlist'])
           }
           else{
             this.newMoment={}

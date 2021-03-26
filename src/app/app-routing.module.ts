@@ -29,7 +29,7 @@ const routes: Routes = [
     component:MomentlistComponent,
     canActivate:[AuthguardGuard]
   },
-  { path:"**", component: RegisterComponent,pathMatch: 'full' },
+  // { path:"**", component: RegisterComponent,pathMatch: 'full' },
 ];
 
 @NgModule({
