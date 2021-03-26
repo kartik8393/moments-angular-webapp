@@ -1,0 +1,61 @@
+p{
+   
+    font-weight: bolder;
+    font-size:large
+}
+
+.main{
+    margin: 20px;
+    padding-top:20px;
+    height: 100vh;
+}
+
+.col-6{
+    padding-top: 20px;
+  }
+
+  img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 50px;;
+  }
+
+.box{
+  height: 40vh;
+  margin-top: 50px;
+  margin-left:50px;
+  margin-right:50px;
+  border-style: dashed;
+  border-color: gray;
+}
+
+.button{
+  background-color: #001b30;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin: auto;
+  color: white;
+
+  border-radius:25px;
+  text-align: center;
+}
+
+.col-12{
+  padding-top: 20px;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-chip-list {
+    width: 100%;
+  }

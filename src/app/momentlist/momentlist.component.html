@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+        <p>List Moments</p>
+    </div>
+</div>
+
+
+<div class="card main">
+    <div class="card-body">
+        <table class="table text-center">
+            <tr>
+                <td>Sr no</td>
+                <td>Image</td>
+                <td>Title</td>
+                <td>Tags</td>
+                <td>Action</td>
+            </tr>
+            <tr *ngFor="let item of momentData;let i=index">
+                <td>{{i+1}}</td>
+                <td><img src={{serverUrl}}{{item.image}} alt="" srcset=""></td>
+                <td>{{item.title}}</td>
+                <td>{{item.tags}}</td>
+                <td><button class="btn btn-primary" (click)="routeToMoment(item._id)" >Update</button>&nbsp;<button class="btn btn-danger" (click)="deleteItem(item._id)">Delete</button> </td>
+            </tr>
+        </table>
+    </div>
+</div>

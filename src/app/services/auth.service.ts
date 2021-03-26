@@ -19,12 +19,12 @@ export class AuthService {
   }
 
   loggedIn(){
-    return !!localStorage.getItem('auth-token')
+    return !!sessionStorage.getItem('token')
   }
 
   doLogout(){
     console.log("in logout service")
-    localStorage.removeItem('token')
+    sessionStorage.removeItem('token')
     this.router.navigate(['/login'])
   }
 }

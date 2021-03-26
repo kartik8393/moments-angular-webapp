@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
-  constructor(private service:AuthService,private router:Router) { }
+  constructor(private service:AuthService, private router:Router) { }
   showSaveLoader=false
   newUser:any={}
 
@@ -20,16 +20,19 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  updateUser(user: NgForm){
+  loginUser(user: NgForm){
     this.showSaveLoader=true
     console.log(this.newUser)
-    this.service.registerUser("users/register",this.newUser).subscribe(
+    this.service.registerUser("users/login",this.newUser).subscribe(
       res => {
         this.showSaveLoader = false; 
         let resp = (<any>res)
         if (resp.code == 200) {
-          window.alert("User added succesfully")
-          this.router.navigate(['/login'])
+          window.alert("User login succesfully")
+          sessionStorage.setItem("token",resp.data.token)
+          sessionStorage.setItem("userData",resp.data._id)
+          console.log(resp.data)
+          this.router.navigate(['/momentlist'])
         }
         else{
           this.newUser={}

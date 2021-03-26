@@ -1,0 +1,83 @@
+<div class="card">
+    <div class="card-body">
+        <p>Add new moment</p>
+    </div>
+</div>
+
+<div class="card main">
+    <div class="card-body">
+        <form (ngSubmit)="addmomentform.valid && addmoment(addmomentform)" #addmomentform="ngForm">
+            <div class="row justify-content-center">
+                <div class="col-10 align-self-center">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Title</mat-label>
+                        <textarea name="newMoment.title"  #title="ngModel" [(ngModel)]="newMoment.title" required  matInput type="text" placeholder="Sample Title" ></textarea>
+                        <div *ngIf="title.valid || addmomentform.submitted">
+                            <div *ngIf="title.errors && title.errors.required"
+                                class="validation-text text-danger">
+                                Title is required
+                            </div>
+                        </div>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <mat-form-field class="example-chip-list">
+                                <mat-label>Tags</mat-label>
+                                <mat-chip-list #chipList aria-label="tag selection">
+                                  <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                                           [removable]="removable" (removed)="remove(tag)">
+                                    {{tag.name}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                  </mat-chip>
+                                  <input placeholder="New tag..."
+                                         [matChipInputFor]="chipList"
+                                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                         [matChipInputAddOnBlur]="addOnBlur"
+                                         (matChipInputTokenEnd)="add($event)">
+                                </mat-chip-list>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Comment</mat-label>
+                                <textarea rows="4" name="newMoment.comment"  #comment="ngModel" [(ngModel)]="newMoment.comment" required  matInput type="text" placeholder="Sample Comment" maxlength="100" ></textarea>
+                                <div *ngIf="comment.valid || addmomentform.submitted">
+                                    <div *ngIf="comment.errors && comment.errors.required"
+                                        class="validation-text text-danger">
+                                        Comment is required
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="col-12 box ">
+                            <div class="row justify-content-center">
+                                <div class="col-2 align-self-center">
+                                    <img src="../../assets/upload.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            
+                            <input (change)="getBase64Photo($event)" [(ngModel)]="newMoment.momentPhoto"
+                                #momentPhoto="ngModel" name="momentPhoto" type="file" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div><br><br>
+            <div class="row" style="text-align: center;">
+                <button class="button mx-auto" [disabled]="showSaveLoader" type="submit">Submit<div *ngIf="showSaveLoader" class="spinner-border spinner-border-sm ml-2" ></div></button>
+            </div>
+        </form>
+        
+    </div>
+</div>

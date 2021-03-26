@@ -1,0 +1,52 @@
+
+<body>
+    <div class="primary-bg">
+        <div class="white-bg">
+            <div class="heading">Sign In</div>
+            <div class="title">To start using the app</div>
+            <div class="container">
+                <div class="container-fluid p-5">
+                    <form (ngSubmit)="adduserForm.valid && loginUser(adduserForm)" #adduserForm="ngForm">
+                        <div class="row justify-content-center" >
+                            <div class="col-6 align-self-center">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input name="newUser.email"  #email="ngModel" [(ngModel)]="newUser.email" required  matInput type="text" placeholder="Robert" >
+                                    <div *ngIf="email.valid || adduserForm.submitted">
+                                        <div *ngIf="email.errors && email.errors.required"
+                                            class="validation-text text-danger">
+                                            Email is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                            
+                        </div>
+                        <div class="row justify-content-center" >
+                            <div class="col-6 align-self-center">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input name="newUser.email"  #password="ngModel" [(ngModel)]="newUser.password" required  matInput type="password" placeholder="Robert" >
+                                    <div *ngIf="password.valid || adduserForm.submitted">
+                                        <div *ngIf="password.errors && password.errors.required"
+                                            class="validation-text text-danger">
+                                            Password is required
+                                        </div>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                            
+                        </div>
+                        <div class="row" style="text-align: center;">
+                            <button class="button mx-auto" [disabled]="showSaveLoader" type="submit">Submit<div *ngIf="showSaveLoader" class="spinner-border spinner-border-sm ml-2" ></div></button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+</body>
